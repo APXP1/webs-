@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Podsumowanie i quiz</title>
+    <style>
+        body {
+            background-image: url('https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvcm0zMDktYWV3LTAxM18xXzEuanBn.jpg');
+            color: white;
+            background-repeat: repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-color:lightskyblue;
+        }
+        h1 {
+            text-align:center;
+        }
+        h2 {
+            color: lemonchiffon;
+            text-align: center;
+        }
+        p {
+            font-size:20px
+        }
+        .main_info {
+            color:brown;
+            font-size:24px;
+            }
+        .info {
+                color:lemonchiffon;
+                font-size:24px;
+            }
+        .text {
+                font-size:20px;
+            }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #img {
+            float:right
+        }
+    </style>
+</head>
+<body>
+    <h1>Podsumowanie</h1>
+    <h2>Po co mi HTML?</h2>
+    <p>HTML stanowi <strong class="main_info">fundament każdej storny internetowej</strong>, dlatego przyda on się on do ich <strong class="main_info">zrozumienia i tworzenia</strong></p>
+    <a href="https://www.w3schools.com/html/"> <img src="https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_1280.png" alt="HTML.img" class="center" width=40% /></a>
+
+    <h2>Co muszę wiedzieć?</h2>
+    <p> Podstawowe Tagi takie jak </p>
+    <img src="https://cdn.pixabay.com/photo/2015/02/24/02/05/website-647013_1280.jpg" alt="HTML.img" class="center" width=35% id="img"/>
+    <ul class="text">
+        <li><i class="info">&ltp&gt</i> - Paragraf, używany do wyświetlania tekstu</li>
+        <li><i class="info">&lth1&gt</i> do <i class="info">&lth6&gt</i> - Nagłówek, &lth1&gt jest największy a &lth6&gt najmiejszy</li>
+        <li><i class="info">&ltimg&gt</i> - Obraz, wyświetlamy za jego pomocą grafikę,</li>
+        <li><i class="info">&ltsrc&gt</i> - Używamy do określenia źródła obrazu</li>
+        <li><i class="info">&ltalt&gt</i> - Określa napis wyświetlany gdy zdjęcei se nie załaduje</li>
+        <li><i class="info">&lta&gt</i> - Definiuje hiperłącza (linki)</li>
+        <li><i class="info">&lthref&gt</i> - określa cel hiprełącza</li>
+        <li><i class="info">&ltstyle&gt</i> - używane w head - służy do okresślenia stylu</li>
+
+    </ul>
+    <h2>Quiz</h2>
+    <p>Odpowiedz na poniższe pytania:</p>
+
+    <form>
+        <h3>Pytanie 1:</h3>
+        <p>Który z poniższych tagów odpowiada za Paragrafy</p>
+        <input type="radio" name="question1" value="answer1">&ltp&gt<br>
+        <input type="radio" name="question1" value="answer2">&lta&gt<br>
+        <input type="radio" name="question1" value="answer3">&ltb&gt<br>
+
+        <h3>Pytanie 2:</h3>
+        <p>Który z poniższych tagów wyświetli źródło zdjęcia</p>
+        <input type="radio" name="question2" value="answer1"> &ltimg&gt <br>
+        <input type="radio" name="question2" value="answer2"> &ltsrc&gt <br>
+        <input type="radio" name="question2" value="answer3"> &lthref&gt <br>
+
+        <h3>Pytanie 3:</h3>
+        <p>Który wyświetlony Nagłówek będzie największy</p>
+        <input type="radio" name="question3" value="answer1"> &lth10&gt<br>
+        <input type="radio" name="question3" value="answer2"> &lth6&gt<br>
+        <input type="radio" name="question3" value="answer3"> &lth1&gt<br>
+
+        <button type="submitQuiz()">Sprawdź odpowiedzi</button>
+        <p id="result"></p>
+    </form>
+
+    <script>
+        function submitQuiz() {
+            var answers = {
+                question1: document.querySelector('input[name="question1"]:checked').value,
+                question2: document.querySelector('input[name="question2"]:checked').value,
+                question3: document.querySelector('input[name="question3"]:checked').value
+            };
+
+            var correctAnswers = {
+                question1: 'answer1',
+                question2: 'answer2',
+                question3: 'answer3'
+            };
+
+            var score = 0;
+
+            for (var question in answers) {
+                if (answers[question] === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            var result = document.getElementById('result');
+            result.innerHTML = 'Twój wynik: ' + score + ' / 3';
+        }
+    </script>
+</body>
+</html>
